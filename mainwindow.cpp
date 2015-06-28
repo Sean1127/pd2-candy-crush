@@ -62,6 +62,16 @@ void MainWindow::arrange()
     }
 }
 
+bool MainWindow::neighbor(int x, int y)
+{
+    if (sqrt(pow((x - prex), 2) + pow((y - prey), 2)) == 1)
+    {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 Rock *MainWindow::genRock(int x, int y)
 {
     int color = rand()%4;
@@ -73,13 +83,25 @@ Rock *MainWindow::genRock(int x, int y)
 
 void MainWindow::button_clicked(int x, int y)
 {
-    if (prex != -1)
+    if (x == prex && y == prey)
     {
-            board[prey][prex]->type = 1;
-            board[prey][prex]->paint();
+        if (board[prey][prex]->type == 1)
+        {
+            board[y][x]->type = 2;
+        } else if (board[prey][prex]->type == 2) {
+            board[y][x]->type = 1;
+        }
+    } else if (neighbor(x, y) == true && board[prey][prex]->type == 2) {
+        int temp = board[y][x]->color;
+        board[y][x]->color = board[prey][prex]->color;
+        board[prey][prex]->color = temp;
+        board[prey][prex]->type = 1;
+    } else {
+        board[prey][prex]->type = 1;
+        board[y][x]->type = 2;
     }
-    board[y][x]->type = 2;
     board[y][x]->paint();
+    board[prey][prex]->paint();
     prex = x;
     prey = y;
 }

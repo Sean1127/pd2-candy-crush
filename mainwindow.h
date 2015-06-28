@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <ctime>
+#include <cmath>
 #include "rock.h"
 
 namespace Ui {
@@ -18,6 +19,7 @@ public:
     ~MainWindow();
     void game();
     void arrange();
+    bool neighbor(int x, int y);
     Rock *genRock(int x, int y);
 
 public slots:
@@ -27,7 +29,7 @@ private:
     int score;
     int star;
     Rock *board[10][10];
-    int prex = -1, prey;
+    int prex = 1, prey = 1;
 };
 
 #endif // MAINWINDOW_H

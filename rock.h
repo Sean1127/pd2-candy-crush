@@ -16,6 +16,7 @@ public:
     int color;
     int type;
     void paint();
+    const Rock &operator =(const Rock &next);
 public slots:
     void act();
 signals:

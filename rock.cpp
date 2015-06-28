@@ -91,6 +91,15 @@ void Rock::paint()
 
 }
 
+const Rock &Rock::operator =(const Rock &next)
+{
+    if (&next != this)
+    {
+        color = next.color;
+    }
+    return *this;
+}
+
 void Rock::act()
 {
     emit selected(x, y);
