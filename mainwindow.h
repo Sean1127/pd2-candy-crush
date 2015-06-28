@@ -18,18 +18,23 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void game();
-    void arrange();
+    bool end();
+    void arrange(int x, int y);
     bool neighbor(int x, int y);
     Rock *genRock(int x, int y);
 
 public slots:
     void button_clicked(int x, int y);
+signals:
+    quit(int star, int score);
 private:
     Ui::MainWindow *ui;
     int score;
     int star;
+    int step;
+    int movement;
     Rock *board[10][10];
-    int prex = 1, prey = 1;
+    int prex, prey;
 };
 
 #endif // MAINWINDOW_H

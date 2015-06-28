@@ -16,91 +16,153 @@ Rock::~Rock()
 void Rock::paint()
 {
     button->setIconSize(QSize(50, 50));
-    switch (type) {
-    case 0:
-        button->setIcon(QPixmap(""));
-        break;
-    case 1:
-        switch (color) {
+    switch (selected) {
+    case false:
+        switch (type) {
         case 1:
-            button->setIcon(QPixmap(":/prefix1/Resource/Bonemeal.png"));
+            switch (color) {
+            case 0:
+                button->setIcon(QPixmap(":/prefix1/Resource/Bonemeal.png"));
+                break;
+            case 1:
+                button->setIcon(QPixmap(":/prefix1/Resource/Rose_Red.png"));
+                break;
+            case 2:
+                button->setIcon(QPixmap(":/prefix1/Resource/Dandelion_Yellow.png"));
+                break;
+            case 3:
+                button->setIcon(QPixmap(":/prefix1/Resource/Ink_Sack.png"));
+                break;
+            }
             break;
         case 2:
-            button->setIcon(QPixmap(":/prefix1/Resource/Rose_Red.png"));
+            switch (color) {
+            case 0:
+                button->setIcon(QPixmap(":/prefix1/Resource/BonemealLR.png"));
+                break;
+            case 1:
+                button->setIcon(QPixmap(":/prefix1/Resource/Rose_RedLR.png"));
+                break;
+            case 2:
+                button->setIcon(QPixmap(":/prefix1/Resource/Dandelion_YellowLR.png"));
+                break;
+            case 3:
+                button->setIcon(QPixmap(":/prefix1/Resource/Ink_SackLR.png"));
+                break;
+            }
             break;
         case 3:
-            button->setIcon(QPixmap(":/prefix1/Resource/Dandelion_Yellow.png"));
+            switch (color) {
+            case 0:
+                button->setIcon(QPixmap(":/prefix1/Resource/BonemealUD.png"));
+                break;
+            case 1:
+                button->setIcon(QPixmap(":/prefix1/Resource/Rose_RedUD.png"));
+                break;
+            case 2:
+                button->setIcon(QPixmap(":/prefix1/Resource/Dandelion_YellowUD.png"));
+                break;
+            case 3:
+                button->setIcon(QPixmap(":/prefix1/Resource/Ink_SackUD.png"));
+                break;
+            }
             break;
-        case 0:
-            button->setIcon(QPixmap(":/prefix1/Resource/Ink_Sack.png"));
+        case 4:
+            switch (color) {
+            case 0:
+                button->setIcon(QPixmap(":/prefix1/Resource/WTNT.png"));
+                break;
+            case 1:
+                button->setIcon(QPixmap(":/prefix1/Resource/RTNT.png"));
+                break;
+            case 2:
+                button->setIcon(QPixmap(":/prefix1/Resource/YTNT.png"));
+                break;
+            case 3:
+                button->setIcon(QPixmap(":/prefix1/Resource/BTNT.png"));
+                break;
+            }
+            break;
+        case 5:
+            button->setIcon(QPixmap(":/prefix1/Resource/Eye_of_Ender.png"));
             break;
         }
         break;
-    case 2:
-        switch (color) {
+    case true:
+        switch (type) {
         case 1:
-            button->setIcon(QPixmap(":/prefix1/Resource/Bonemeals.png"));
+            switch (color) {
+            case 0:
+                button->setIcon(QPixmap(":/prefix1/Resource/Bonemeals.png"));
+                break;
+            case 1:
+                button->setIcon(QPixmap(":/prefix1/Resource/Rose_Reds.png"));
+                break;
+            case 2:
+                button->setIcon(QPixmap(":/prefix1/Resource/Dandelion_Yellows.png"));
+                break;
+            case 3:
+                button->setIcon(QPixmap(":/prefix1/Resource/Ink_Sacks.png"));
+                break;
+            }
             break;
         case 2:
-            button->setIcon(QPixmap(":/prefix1/Resource/Rose_Reds.png"));
+            switch (color) {
+            case 0:
+                button->setIcon(QPixmap(":/prefix1/Resource/BonemealLRs.png"));
+                break;
+            case 1:
+                button->setIcon(QPixmap(":/prefix1/Resource/Rose_RedLRs.png"));
+                break;
+            case 2:
+                button->setIcon(QPixmap(":/prefix1/Resource/Dandelion_YellowLRs.png"));
+                break;
+            case 3:
+                button->setIcon(QPixmap(":/prefix1/Resource/Ink_SackLRs.png"));
+                break;
+            }
             break;
         case 3:
-            button->setIcon(QPixmap(":/prefix1/Resource/Dandelion_Yellows.png"));
+            switch (color) {
+            case 0:
+                button->setIcon(QPixmap(":/prefix1/Resource/BonemealUDs.png"));
+                break;
+            case 1:
+                button->setIcon(QPixmap(":/prefix1/Resource/Rose_RedUDs.png"));
+                break;
+            case 2:
+                button->setIcon(QPixmap(":/prefix1/Resource/Dandelion_YellowUDs.png"));
+                break;
+            case 3:
+                button->setIcon(QPixmap(":/prefix1/Resource/Ink_SackUDs.png"));
+                break;
+            }
             break;
-        case 0:
-            button->setIcon(QPixmap(":/prefix1/Resource/Ink_Sacks.png"));
+        case 4:
+            switch (color) {
+            case 0:
+                button->setIcon(QPixmap(":/prefix1/Resource/WTNTs.png"));
+                break;
+            case 1:
+                button->setIcon(QPixmap(":/prefix1/Resource/RTNTs.png"));
+                break;
+            case 2:
+                button->setIcon(QPixmap(":/prefix1/Resource/YTNTs.png"));
+                break;
+            case 3:
+                button->setIcon(QPixmap(":/prefix1/Resource/BTNTs.png"));
+                break;
+            }
             break;
-        }
-        break;
-    case 3:
-        switch (color) {
-        case 1:
-
-            break;
-        case 2:
-
-            break;
-        case 3:
-
-            break;
-        case 0:
-
-            break;
-        }
-        break;
-    case 4:
-        switch (color) {
-        case 1:
-
-            break;
-        case 2:
-
-            break;
-        case 3:
-
-            break;
-        case 0:
-
+        case 5:
+            button->setIcon(QPixmap(":/prefix1/Resource/Eye_of_Enders.png"));
             break;
         }
-        break;
-    case 5:
-
-        break;
+    break;
     }
-
-}
-
-const Rock &Rock::operator =(const Rock &next)
-{
-    if (&next != this)
-    {
-        color = next.color;
-    }
-    return *this;
 }
 
 void Rock::act()
 {
-    emit selected(x, y);
+    emit signal(x, y);
 }

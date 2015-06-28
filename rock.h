@@ -15,12 +15,12 @@ public:
     const int x, y;
     int color;
     int type;
+    bool selected;
     void paint();
-    const Rock &operator =(const Rock &next);
 public slots:
     void act();
 signals:
-    void selected(int x, int y);
+    void signal(int x, int y);
 };
 
 #endif // ROCK_H
