@@ -1,0 +1,38 @@
+<RCC>
+    <qresource prefix="/prefix1">
+        <file>Resource/Bonemeal.png</file>
+        <file>Resource/BonemealLR.png</file>
+        <file>Resource/BonemealLRs.png</file>
+        <file>Resource/Bonemeals.png</file>
+        <file>Resource/BonemealUD.png</file>
+        <file>Resource/BonemealUDs.png</file>
+        <file>Resource/BTNT.png</file>
+        <file>Resource/BTNTs.png</file>
+        <file>Resource/Dandelion_Yellow.png</file>
+        <file>Resource/Dandelion_YellowLR.png</file>
+        <file>Resource/Dandelion_YellowLRs.png</file>
+        <file>Resource/Dandelion_Yellows.png</file>
+        <file>Resource/Dandelion_YellowUD.png</file>
+        <file>Resource/Dandelion_YellowUDs.png</file>
+        <file>Resource/Eye_of_Ender.png</file>
+        <file>Resource/Eye_of_Enders.png</file>
+        <file>Resource/Ink_Sack.png</file>
+        <file>Resource/Ink_SackLR.png</file>
+        <file>Resource/Ink_SackLRs.png</file>
+        <file>Resource/Ink_Sacks.png</file>
+        <file>Resource/Ink_SackUD.png</file>
+        <file>Resource/Ink_SackUDs.png</file>
+        <file>Resource/Rose_Red.png</file>
+        <file>Resource/Rose_RedLR.png</file>
+        <file>Resource/Rose_RedLRs.png</file>
+        <file>Resource/Rose_Reds.png</file>
+        <file>Resource/Rose_RedUD.png</file>
+        <file>Resource/Rose_RedUDs.png</file>
+        <file>Resource/RTNT.png</file>
+        <file>Resource/RTNTs.png</file>
+        <file>Resource/WTNT.png</file>
+        <file>Resource/WTNTs.png</file>
+        <file>Resource/YTNT.png</file>
+        <file>Resource/YTNTs.png</file>
+    </qresource>
+</RCC>

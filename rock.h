@@ -15,11 +15,12 @@ public:
     const int x, y;
     int color;
     int type;
+    void paint();
 public slots:
     void act();
 signals:
     void selected(int x, int y);
-}
+};
 
 #endif // ROCK_H
 

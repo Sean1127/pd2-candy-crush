@@ -18,10 +18,7 @@ public:
     ~MainWindow();
     void game();
     void arrange();
-    bool check();
-    void clean();
-    void drop();
-    void fill();
+    Rock *genRock(int x, int y);
 
 public slots:
     void button_clicked(int x, int y);
@@ -29,7 +26,8 @@ private:
     Ui::MainWindow *ui;
     int score;
     int star;
-    Rock *board[][];
+    Rock *board[10][10];
+    int prex = -1, prey;
 };
 
 #endif // MAINWINDOW_H
