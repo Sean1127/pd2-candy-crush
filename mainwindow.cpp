@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     prex = 1;
     prey = 1;
     step = 15;
-    movement++;
+    movement = 0;
 }
 
 MainWindow::~MainWindow()
@@ -33,7 +33,11 @@ void MainWindow::game()
 {
     score = 0;
     star = 0;
-    //arrange(prex, prey);
+    arrange(prex, prey);
+    while (movement != 0) {
+        movement = 0;
+        arrange(prex, prey);
+    }
 }
 
 bool MainWindow::end()
@@ -59,6 +63,7 @@ void MainWindow::arrange(int x, int y)
                 board[j][i + 3]->color = -1;
                 board[j][i + 4]->color = -1;
                 movement++;
+                score += 150;
             }
         }
     }
@@ -76,10 +81,11 @@ void MainWindow::arrange(int x, int y)
                 board[j + 3][i]->color = -1;
                 board[j + 4][i]->color = -1;
                 movement++;
+                score += 150;
             }
         }
     }
-/*    //check type 4 bomb
+    //check type 4 bomb
     //L1
     for (i = 0; i < 8; i++)
     {
@@ -94,6 +100,7 @@ void MainWindow::arrange(int x, int y)
                 board[j + 2][i + 1]->color = -1;
                 board[j + 2][i + 1]->color = -1;
                 movement++;
+                score += 100;
             }
         }
     }
@@ -111,6 +118,7 @@ void MainWindow::arrange(int x, int y)
                 board[j][i + 1]->color = -1;
                 board[j][i + 1]->color = -1;
                 movement++;
+                score += 100;
             }
         }
     }
@@ -128,6 +136,7 @@ void MainWindow::arrange(int x, int y)
                 board[j + 1][i + 2]->color = -1;
                 board[j + 2][i + 2]->color = -1;
                 movement++;
+                score += 100;
             }
         }
     }
@@ -145,6 +154,7 @@ void MainWindow::arrange(int x, int y)
                 board[j + 2][i - 1]->color = -1;
                 board[j + 2][i - 2]->color = -1;
                 movement++;
+                score += 100;
             }
         }
     }
@@ -162,6 +172,7 @@ void MainWindow::arrange(int x, int y)
                 board[j + 3][i]->color = -1;
                 board[y][x]->type = 3;
                 movement++;
+                score += 75;
             }
         }
     }
@@ -179,6 +190,7 @@ void MainWindow::arrange(int x, int y)
                 board[j][i + 3]->color = -1;
                 board[y][x]->type = 2;
                 movement++;
+                score += 75;
             }
         }
     }
@@ -195,6 +207,7 @@ void MainWindow::arrange(int x, int y)
                 board[j][i + 1]->color = -1;
                 board[j][i + 2]->color = -1;
                 movement++;
+                score += 30;
             }
         }
     }
@@ -210,9 +223,10 @@ void MainWindow::arrange(int x, int y)
                 board[j + 1][i]->color = -1;
                 board[j + 2][i]->color = -1;
                 movement++;
+                score += 30;
             }
         }
-    }*/
+    }
     //clean
     for (i = 0; i < 10; i++)
     {
@@ -253,7 +267,7 @@ void MainWindow::arrange(int x, int y)
         {
             if (board[j + 1][i]->color == -1)
             {
-                board[j + 1][i] = board[j][i];
+                board[j + 1][i]->color = board[j][i]->color;
                 board[j][i]->color = -1;
             }
         }
@@ -268,10 +282,9 @@ void MainWindow::arrange(int x, int y)
                 board[j][i]->type = 1;
                 board[j][i]->color = rand()%4;
             }
+            board[j][i]->paint();
         }
     }
-    if (movement != 0)
-        arrange(x, y);
 }
 
 bool MainWindow::neighbor(int x, int y)
@@ -306,10 +319,21 @@ void MainWindow::button_clicked(int x, int y)
             board[y][x]->selected = false;
         }
     } else if (neighbor(x, y) == true && board[prey][prex]->selected == true) {
+        if (board[prey][prex]->type == 5)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    if (board[j][i]->color == board[y][x]->color)
+                        board[j][i]->color = -1;
+                }
+            }
+        }
         int temp = board[y][x]->color;
         board[y][x]->color = board[prey][prex]->color;
         board[prey][prex]->color = temp;
-        board[prey][prex]->selected = false;
+        board[prey][prex]->selected = false;           
         arrange(x, y);
         if (movement == 0)
         {
@@ -317,6 +341,10 @@ void MainWindow::button_clicked(int x, int y)
             board[y][x]->color = board[prey][prex]->color;
             board[prey][prex]->color = temp;
         } else {
+            while (movement != 0) {
+                movement = 0;
+                arrange(prex, prey);
+            }
             step--;
         }
     } else {
@@ -329,6 +357,7 @@ void MainWindow::button_clicked(int x, int y)
     prex = x;
     prey = y;
     //end condition
+    ui->label_2->setText(QString("%1").arg(score));
     if (end() == true)
     {
         emit quit(star, score);

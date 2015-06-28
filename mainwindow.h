@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <ctime>
 #include <cmath>
+#include <cstring>
 #include "rock.h"
 
 namespace Ui {
